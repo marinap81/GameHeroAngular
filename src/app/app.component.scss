@@ -1,0 +1,80 @@
+.heroStyle {
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+}
+div.column.heroStyle:hover {
+    background-color: lightgray;
+}
+.villainStyle {
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+} 
+div.column.villainStyle:hover {
+    background-color: lightgray;
+}
+
+/*
+https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+*/
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.row > .column {
+    flex: auto;
+    padding-right: 30px;
+    padding-left: 10px;
+    margin: 50px;
+}
+.hero-image {
+    height: 150px;
+    width: 150px;
+}
+.villain-image {
+    height: 150px;
+}
+.heroStyleSelected {
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+    background-color: green;
+}
+.villainStyleSelected {
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+    background-color: red;
+}
+.startButton {
+    width: 50px;
+}
+.rollButton {
+    background-color: #18529e;
+    width: 50px;
+    // height: 22px;
+    color: white;
+    border-radius: 5px;
+    // font-size: 20px;
+    // padding: 5px;
+    padding: 3px 13px 3px 13px;
+}
+.heroStyleDisabled {
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+    background-color: gray;
+}
+.villainStyleDisabled {
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+    background-color: gray;
+}

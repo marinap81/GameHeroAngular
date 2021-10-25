@@ -1,0 +1,52 @@
+<h3>Phase 1</h3>
+<div>
+    <button class="startButton" (click)="start()">Start</button>
+</div>
+
+<h2>Selected Hero: {{selectedHeroName}}</h2>
+
+<div class="row">
+    <div *ngFor="let item of heroList let i = index">
+        <div class="column {{heroStyle[i]}}" (click)="clickHero(i)">
+
+                <div><img class="hero-image" src="/assets/images/{{item.imageFileName}}" alt="{{item.imageFileName}}"></div>
+                <div><h2>{{item.heroName}}</h2></div>
+                <div>Dice: {{item.minDiceValue}} - {{item.maxDiceValue}}</div>
+                <div><p>Uses Left: {{item.initialUses}}</p></div>
+
+        </div>
+    </div>
+</div>
+
+<hr >
+
+<div class="row">
+    <div *ngFor="let item of villainList let j = index">
+        <div class="column {{villainStyle[j]}}" (click)="clickVillain(j)">
+            <div><img class="villain-image" src="/assets/images/{{item.imageFileName}}" alt="{{item.imageFileName}}"></div>
+            <div><h2>{{item.villainName}}</h2></div>
+            <div>{{item.villainHealth}}</div>
+            <div><p>{{selectedVillain == j}}</p></div>
+        </div>
+    </div>
+</div>
+
+<h2>Selected Villain: {{selectedVillainName}} {{selectedVillainHealth}}</h2>
+
+<hr>
+
+<div><p>{{selectedHeroName}} attacks {{selectedVillainName}}</p></div> <!-- shows who will attack who on sreen-->
+
+<div>
+    <div *ngFor="let gameitem of gameplay">  
+        <div>{{gameitem}}</div> <!--triggers no attacks played to display on screen, it'll then change to show who attacks who and how many dice rolls-->
+    </div>
+</div>
+
+<div>
+    <button class="rollButton" (click)="roll()">Roll</button>
+</div>
+
+
+
+
