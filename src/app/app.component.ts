@@ -59,7 +59,12 @@ export class AppComponent {
 
   }
 
-  clickHero(heroId: number) {
+      clickHero(heroId: number) {
+      //added extra if statement to block hero from selection once use cases are 0
+      if (this.heroList[heroId].initialUses < 1) {
+        // this character is used up
+        return;
+      }
 
     if (this.selectedHero != -1) {
       this.setHeroBackground(this.selectedHero);
@@ -75,8 +80,12 @@ export class AppComponent {
 
   }
 
-  clickVillain(villainId: number) {
-
+    clickVillain(villainId: number) {
+    //added extra statement to block villain from selection once use cases are 0
+    if (this.villainList[villainId].villainHealth < 1) {
+      // this character is used up and cant be in play any longer
+      return;
+    }
 
 
     if (this.selectedVillain != -1) {
