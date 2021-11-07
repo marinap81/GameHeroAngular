@@ -12,7 +12,7 @@ div.column.heroStyle:hover {
     border-style: solid;
     padding: 20px;
     margin: 20px;
-} 
+}
 div.column.villainStyle:hover {
     background-color: lightgray;
 }
@@ -31,11 +31,12 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/flex
     margin: 50px;
 }
 .hero-image {
-    height: 150px;
-    width: 150px;
+    height: 90px;
+    width: 90px;
 }
 .villain-image {
-    height: 150px;
+    height: 90px;
+    width: 90px;
 }
 .heroStyleSelected {
     border-width: 2px;

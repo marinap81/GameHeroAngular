@@ -1,4 +1,4 @@
-<h3>Phase 1</h3>
+<h3>Heroes VS Villain</h3>
 <div>
     <button class="startButton" (click)="start()">Start</button>
 </div>
@@ -6,10 +6,10 @@
 <h2>Selected Hero: {{selectedHeroName}}</h2>
 
 <div class="row">
-    <div *ngFor="let item of heroList let i = index">
-        <div class="column {{heroStyle[i]}}" (click)="clickHero(i)">
+    <div *ngFor="let item of heroList; let i = index">
+        <div class="column {{heroStyle[i]}}" (click)="clickHero(i)"><!--styling each hero against the index-->
 
-                <div><img class="hero-image" src="/assets/images/{{item.imageFileName}}" alt="{{item.imageFileName}}"></div>
+                <div><img class="hero-image" src="/assets/images/{{item.imageFileName}}" alt="{{item.imageFileName}}"></div><!--image pulled across by it's file name pointing to asset folder-->
                 <div><h2>{{item.heroName}}</h2></div>
                 <div>Dice: {{item.minDiceValue}} - {{item.maxDiceValue}}</div>
                 <div><p>Uses Left: {{item.initialUses}}</p></div>
@@ -21,24 +21,25 @@
 <hr >
 
 <div class="row">
-    <div *ngFor="let item of villainList let j = index">
+    <div *ngFor="let item of villainList; let j = index">
         <div class="column {{villainStyle[j]}}" (click)="clickVillain(j)">
             <div><img class="villain-image" src="/assets/images/{{item.imageFileName}}" alt="{{item.imageFileName}}"></div>
             <div><h2>{{item.villainName}}</h2></div>
             <div>{{item.villainHealth}}</div>
-            <div><p>{{selectedVillain == j}}</p></div>
+            <div><p>{{selectedVillain == j}}</p></div> <!--true/false display-->
+
         </div>
     </div>
 </div>
 
-<h2>Selected Villain: {{selectedVillainName}} {{selectedVillainHealth}}</h2>
+<h2>Selected Villain: {{selectedVillainName}} </h2>
 
 <hr>
 
 <div><p>{{selectedHeroName}} attacks {{selectedVillainName}}</p></div> <!-- shows who will attack who on sreen-->
 
 <div>
-    <div *ngFor="let gameitem of gameplay">  
+    <div *ngFor="let gameitem of gameplay">
         <div>{{gameitem}}</div> <!--triggers no attacks played to display on screen, it'll then change to show who attacks who and how many dice rolls-->
     </div>
 </div>
@@ -46,6 +47,19 @@
 <div>
     <button class="rollButton" (click)="roll()">Roll</button>
 </div>
+
+<!--setting up game results-->
+<div *ngIf="gamesPlayed.length > 0" class="gamesPlayedContainer">
+  <hr>
+  <div *ngFor="let gamePlayed of gamesPlayed">
+      <div class="row">
+          <!--<div class="column gamePlayedCreated">{{gamePlayed.created | date:'dd-MM-yyyy hh:mm:ss' }}</div> -->
+          <div class="column gamePlayedCreated">{{gamePlayed.created | date:'short':'UTC +9:30 / +10:30' }}</div>
+          <div class="column gamePlayedWinnerName">{{gamePlayed.winnerName}} won</div>
+      </div>
+  </div>
+</div>
+
 
 
 
